@@ -149,24 +149,47 @@ public class FlagDrawer{
      * A full marks solution will have a method for drawing a 5 pointed star,
      * and call that method for each of the stars
      */
-    public void drawSamoaFlag() {
+     public void drawSamoaFlag() {
         UI.clearGraphics();        
         UI.println("Samoa Flag");
-        double width = UI.askDouble("How wide: ");
-        /*# YOUR CODE HERE */
+         double width = UI.askDouble("How wide: ");
         UI.setColor(Color.RED);
         UI.fillRect(0,0,width,width * 0.5);
         UI.setColor(Color.BLUE.darker());
         UI.fillRect(0,0,width * 0.5,width * 0.25);
-        drawStars();
+        double Height = width /2;
+        double StarSize = width/100;
+        double[] northStar = {(width/4)-6,Height/20};
+        drawStars(northStar,1*StarSize);
+        double[] eastStar = {(3.2*width/10)-6,Height/6};
+        drawStars(eastStar,1*StarSize);
+        double[] smallStar = {(1.2*width/4)-6,Height/4};
+        drawStars(smallStar,0.7*StarSize);
+        double[] southStar = {(width/4)-6,Height/2.6};
+        drawStars(southStar,1.05*StarSize);
+        double[] westStar = {(width/5.5)-6,Height/4.8};
+        drawStars(westStar,1*StarSize);
 
     }
-    public void drawStars(){
+    public void drawStars(double[] StarOffsets, double width){
 
+        double[] xCords = new double[]{1.309,1.618,2.618,1.809,2.118,1.309,.50,.809,0,1,1.309};
+        double[] yCords = new double[]{0,.9511,.9511,1.5388,2.4899,1.9021,2.4899,1.5388,.9511,.9511,0};
+        double[] XCords = new double[11];
+        double[] YCords = new double[11];
+        for(int i = 0; i < xCords.length; i++){
+            XCords[i] = (xCords[i] * width) + StarOffsets[0];
+        }
+        for(int i= 0; i < YCords.length; i++){
+            YCords[i] = (yCords[i] * width) + StarOffsets[1];
+        }
+        UI.setColor(Color.WHITE);
+        UI.fillPolygon(XCords, YCords ,11);
 
-        double[] xtmp = new double[]{1.309,1.618,2.618,1.809,2.118,1.309,.50,.809,0,1,1.309};
-        double[] ytmp = new double[]{0,.9511,.9511,1.5388,2.4899,1.9021,2.4899,1.5388,.9511,.9511,0};
     }
+
+
+
 
     public void setupGUI(){
         UI.addButton("Clear", UI::clearPanes);
