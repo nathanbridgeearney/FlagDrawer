@@ -55,6 +55,7 @@ public class FlagDrawer{
         UI.clearGraphics();
         double size = UI.askDouble("How wide: ");
         /*# YOUR CODE HERE */
+        UI.setColor(Color.BLACK);
         UI.drawRect(LEFT,TOP, size, size);
         UI.setColor(Color.red);
         UI.fillRect(LEFT+size*0.4,TOP+size*0.2,size*0.2,size*0.6);
@@ -72,15 +73,15 @@ public class FlagDrawer{
         double width = UI.askDouble("How wide: ");
         /*# YOUR CODE HERE */
         UI.setColor(Color.BLACK);
-        UI.fillRect(LEFT,TOP,width, width*2);
+        UI.fillRect(0,0,width, width*1.5);
         UI.setColor(Color.red);
-        UI.fillArc(width * 0.4, width * 0.9 ,width * 0.25, width * 0.25, 120,300);
+        UI.fillArc(width * 0.4, width * 1 ,width * 0.25, width * 0.25, 120,300);
         UI.setColor(Color.YELLOW);
         UI.fillOval(width * 0.47, width * 0.6,width* 0.1, width * 0.1 );
         UI.setColor(Color.GREEN);
-        UI.fillOval(width * 0.47, width * 0.4,width* 0.1, width * 0.1 );
+        UI.fillOval(width * 0.47, width * 0.8,width* 0.1, width * 0.1 );
         UI.setColor(Color.BLUE);
-        UI.fillOval(width * 0.47, width * 0.2,width* 0.1, width * 0.1 );
+        UI.fillOval(width * 0.47, width * 0.4,width* 0.1, width * 0.1 );
 
     }
 
